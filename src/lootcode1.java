@@ -22,7 +22,7 @@ public class lootcode1 {
             if (sum>maximum) {
                 maximum = sum;
             }
-        } 
+        }
         return maximum;
     }
 }
