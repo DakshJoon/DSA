@@ -9,13 +9,7 @@ class Solution {
                 i++;
             }
         }
-        int count = 0;
-        for(int c = 0; c<nums.length; c++){
-            if(nums[c] != c+1){
-                count++;
-            }
-        }
-        int[] ans = new int[count+1];
+        int[] ans = new int[2];
         for(int j = 0; j < nums.length; j++) {
             if(nums[j] != j + 1) {
                 ans[0] = nums[j];
