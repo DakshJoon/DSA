@@ -15,6 +15,9 @@ public class StarPattern1 {
         pattern6(6);
         pattern7(6);
         pattern8(6);
+        pattern(6);
+        pattern9(5);
+        pattern10(5);
     }
     public static void pattern(int s) { 
         for(int i = 0; i<s; i++) { // i = row
@@ -156,6 +159,30 @@ public class StarPattern1 {
             }
             for(int j = 2; j<=col; j++){
                 System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void pattern9(int s){
+        s = 2*s;
+        for(int i = 0; i<=s; i++){
+            for(int j = 0; j<=s; j++){
+                // we need to find the minimum distance
+                // distance from upper wall = row, left wall = col, right = s - col , down = s - row 
+                // minimum of all this is the answer
+                int index = Math.min(Math.min(i, j), Math.min(s-i, s-j));
+                System.out.print(index+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void pattern10(int s){
+        int originalS = s;
+        s = 2*s;
+        for(int i = 1; i<s; i++){
+            for(int j = 1; j<s; j++){
+                int index = originalS + 1 - Math.min(Math.min(i,j), Math.min(s-i, s-j));
+                System.out.print(index + " ");
             }
             System.out.println();
         }
