@@ -15,8 +15,9 @@ public class recursion1 {
         System.out.println();
         System.out.println(sum(10));
         System.out.println();
-        
-
+        System.out.println(sumOfDigits(1234));
+        System.out.println();
+        System.out.println(productOfDigits(24));
     }
     public static void printNTo1(int n){ // simple method to print number from n to 1
         if(n == 0){
@@ -59,5 +60,21 @@ public class recursion1 {
             return 1;
         }
         return n + sum(n-1);
+    }
+    public static int sumOfDigits(int n){ // this is to find the sum of digits of a number
+        if(n <= 1){
+            return n;
+        }
+        int reminder = n % 10;
+        n = n/10;
+        return reminder + sumOfDigits(n);
+    }
+    public static int productOfDigits(int n){ // this is to find the product of digits of a number
+        if(n % 10 == n){
+            return n;
+        }
+        int reminder = n % 10;
+        n = n/10;
+        return reminder * productOfDigits(n);
     }
 }
