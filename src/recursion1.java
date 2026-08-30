@@ -2,7 +2,7 @@
  * In this class we are going to learn about recursion.
  */
 public class recursion1 {
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
         printNTo1(6);
         System.out.println();
         print1ToN(12);
@@ -18,6 +18,8 @@ public class recursion1 {
         System.out.println(sumOfDigits(1234));
         System.out.println();
         System.out.println(productOfDigits(24));
+        System.out.println();
+        System.out.println(countZeros(203005));
     }
     public static void printNTo1(int n){ // simple method to print number from n to 1
         if(n == 0){
@@ -65,16 +67,30 @@ public class recursion1 {
         if(n <= 1){
             return n;
         }
-        int reminder = n % 10;
+        int remainder = n % 10;
         n = n/10;
-        return reminder + sumOfDigits(n);
+        return remainder + sumOfDigits(n);
     }
     public static int productOfDigits(int n){ // this is to find the product of digits of a number
         if(n % 10 == n){
             return n;
         }
-        int reminder = n % 10;
+        int remainder = n % 10;
         n = n/10;
-        return reminder * productOfDigits(n);
+        return remainder * productOfDigits(n);
+    }
+    public static int countZeros(int n){ // this will count zeros in the number
+        return countZerosH(n, 0);
+    }
+    // special pattern, how to pass a value to above calls
+    public static int countZerosH(int n, int count){
+        if(n == 0){
+            return count;
+        }
+        int remainder = n % 10;
+        if(remainder == 0){
+            return countZerosH(n/10, count+1);
+        }
+        return countZerosH(n/10, count);
     }
 }
