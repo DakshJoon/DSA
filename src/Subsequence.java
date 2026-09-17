@@ -7,6 +7,9 @@ public class Subsequence {
         ArrayList<String> list = new ArrayList<>();
         System.out.println(subseq1("", "abc", list));
         System.out.println(subseq2("", "abc"));
+        subseqAscii("", "abc");
+        System.out.println();
+        System.out.println(subseqAscii2("", "abc"));
 
     }
     public static void subseq(String p , String up){ // using void method 
@@ -44,6 +47,37 @@ public class Subsequence {
         ArrayList<String> right = subseq2(s , up.substring(1));
         
         left.addAll(right);
+        return left;
+    
+    }
+    public static void subseqAscii(String p , String up){ // using void method , including ascii
+        if(up.isEmpty()){   
+            System.out.print(p + " ");
+            return;
+        }
+
+        char ch = up.charAt(0);
+        subseqAscii(p + ch, up.substring(1));
+        subseqAscii(p , up.substring(1));
+        subseqAscii(p + (ch + 0), up.substring(1));
+
+    }
+
+    public static ArrayList<String> subseqAscii2(String s, String up){ // returning ArrayList<String> only by creating it in the body, including ascii
+        ArrayList<String> list  = new ArrayList<>();
+        if(up.isEmpty()){
+            list.add(s);
+            return list;
+        }
+
+        char ch = up.charAt(0);
+        ArrayList<String> left = subseqAscii2(s+ch, up.substring(1));
+        ArrayList<String> right = subseqAscii2(s , up.substring(1));
+        ArrayList<String> ascii = subseqAscii2(s + (ch + 0) , up.substring(1));
+
+        
+        left.addAll(right);
+        left.addAll(ascii);
         return left;
     
     }
