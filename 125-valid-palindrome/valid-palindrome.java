@@ -1,6 +1,6 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        s = s.replaceAll("\\s+", "");
+        
         char[] ch = s.toCharArray();
         if(s.isEmpty()) {
             return true;
