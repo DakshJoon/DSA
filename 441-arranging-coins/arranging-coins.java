@@ -1,19 +1,12 @@
 class Solution {
     public int arrangeCoins(int n) {
-        long low = 0;
-        long high = n;
+        int rows = 0;
 
-        while (low <= high) {
-            long mid = low + (high - low) / 2;
-            long coinsNeeded = mid * (mid + 1) / 2;
-
-            if (coinsNeeded <= n) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
+        while (n >= rows + 1) {
+            rows++;
+            n -= rows;
         }
 
-        return (int) high;
+        return rows;
     }
 }
